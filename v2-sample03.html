@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+<div id="app">
+  <!-- 関数の()は不要 -->
+  <input type="text" v-model="message"></input>
+  <p>messageの型：{{ typeof message }}</p>
+  <p>reversedMessageの型：{{ reversedMessage }}</p>
+  <p>reversedMessage2の型：{{ reversedMessage2 }}</p>
+</div>
+
+<script>
+const app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!'
+    },
+    computed: {
+        reversedMessage: function () {
+            // アロー関数で記述すると期待通りに動作しない。s
+            return typeof this.message
+        },
+        reversedMessage2() {
+            return typeof this.message
+        }
+    }
+})
+
+</script>
+</body>
+
+</html>
